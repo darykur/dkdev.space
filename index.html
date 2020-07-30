@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДКоротова - frontend-разработчик</title>
+
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="page">
+    <button class="button to-top animate__animated">Наверх</button>
+    <header class="header">
+        <div class="popup-container">
+            <div class="popup-cap"></div>
+            <div class="popup-menu">
+                <div class="popup-menu__window">
+                    <ul class="nav-list popup-menu__nav-list">
+                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft">
+                            <div class="header__block">
+                                <a class="header__nav-link popup-menu__nav-link_services" href="#skills">Услуги</a>
+                                <div class="hoverline header__hoverline"></div>
+                            </div>
+                        </li>
+                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft animate__delay1">
+                            <div class="header__block">
+                                <a class="header__nav-link popup-menu__nav-link_portfolio header__nav-link_color_red" href="#examples">Портфолио</a>
+                                <div class="hoverline hoverline_red"></div>
+                            </div>
+                        </li>
+                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft  animate__delay2">
+                            <div class="header__block">
+                                <a class="header__nav-link popup-menu__nav-link_cost" href="#offer">Стоимость</a>
+                                <div class="hoverline header__hoverline"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="popup-callback">
+            <div class="popup-callback__window popup-callback__window_grey">
+                <button class="button popup-callback__close" aria-label="закрыть окно">
+                    <span></span>
+                </button>
+                <form class="popup-callback__form" method="post">
+                    <input type="hidden" name = "project_name" value = "dkdev.space">
+                    <input type="hidden" name = "admin_email" value = "darykur@yandex.ru">
+                    <input type="hidden" name = "form_subject" value = "Запрос обратного звонка">
+                    <label class="popup-callback__label" for="name">КАК&nbsp;Я&nbsp;МОГУ&nbsp;К&nbsp;ВАМ&nbsp;ОБРАЩАТЬСЯ</label>
+                    <input class="popup-callback__input" type="text" name="имя" id="name" placeholder="Name">
+                    <label class="popup-callback__label" for="tel">ВАШ&nbsp;КОНТАКТНЫЙ&nbsp;НОМЕР&nbsp;ТЕЛЕФОНА</label>
+                    <input class="popup-callback__input" type="tel" name="телефон" id="tel" placeholder="+7(999)999-99-99">
+                    <div class="popup-callback__email">
+                        <label class="popup-callback__label" for="email">И АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ</label>
+                        <input class="popup-callback__input" type="email" name="почта" id="email" placeholder="mail@com.ru">
+                    </div>
+                    <button class="button popup-callback__submit" type="submit">ЖДУ&nbsp;ЗВОНКА</button>  
+                </form>
+            </div>
+            <div class="popup-callback__window popup-callback__window_green">
+                <button class="button popup-callback__close" aria-label="закрыть окно">
+                    <span>|</span>
+                    <span>|</span>
+                </button>
+                <p class="popup-callback__sucsess">ОТПРАВЛЕНО!</p>
+            </div>
+
+        </div>
+
+        <div class="container header__container">
+            <nav class="nav header__nav">
+                <button class="burger nav__burger animate__animated" aria-label="список меню">
+                    <span class="burger__line"></span>
+                </button>
+                <ul class="nav-list header__nav-list">
+                    <li class="nav-list__item nav-list__item_header">
+                        <div class="header__block">
+                            <a class="header__nav-link header__nav-link_services" href="#skills">Услуги</a>
+                            <div class="hoverline header__hoverline"></div>
+                        </div>
+                    </li>
+                    <li class="nav-list__item nav-list__item_header">
+                        <div class="header__block">
+                            <a class="header__nav-link header__nav-link_portfolio header__nav-link_color_red" href="#examples">Портфолио</a>
+                            <div class="hoverline hoverline_red"></div>
+                        </div>
+                    </li>
+                    <li class="nav-list__item nav-list__item_header">
+                        <div class="header__block">
+                            <a class="header__nav-link header__nav-link_cost" href="#offer">Стоимость</a>
+                            <div class="hoverline header__hoverline"></div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <address class="header__phone animate__animated"><a class="header__phone-link" href="tel:+7(925)452-02-65" aria-label="телефон">+7 (925) 452-02-65</a></address>
+            <button class="button header__button button_transparent">
+                <img class="header__button_img  animate__animated" src="img/call-request.png" alt="заказать звонок">
+                <span class="header__button_text">Заказать звонок</span>  
+            </button>
+        </div>
+    </header>
+
+
+    <main>
+        <section class="intro">
+            <div class="flytag intro__flytag_close1">
+                <span class="intro__fly-item intro__fly-item_wings_left">&lt;</span>
+                <span class="intro__fly-item">&nbsp;/</span>
+                <span class="intro__fly-item intro__fly-item_wings_right">&gt;</span>
+            </div>
+            <div class="flytag intro__flytag_close2">
+                <span class="intro__fly-item intro__fly-item_wings_left">&lt;</span>
+                <span class="intro__fly-item">&nbsp;/</span>
+                <span class="intro__fly-item intro__fly-item_wings_right">&gt;</span>
+            </div>
+            <div class="flytag intro__flytag_hashtag">
+                <span class="intro__fly-item intro__fly-item_wings_left">&lt;</span>
+                <span class="intro__fly-item">&nbsp;#</span>
+                <span class="intro__fly-item intro__fly-item_wings_right">&gt;</span>
+            </div>
+            <div class="flytag intro__flytag_braces">
+                <span class="intro__fly-item intro__fly-item_wings_left">&lt;</span>
+                <span class="intro__fly-item">{ }</span>
+                <span class="intro__fly-item intro__fly-item_wings_right">&gt;</span>
+            </div>
+            <div class="flytag intro__flytag_div1">
+                <span class="intro__fly-item intro__fly-item_wings_left">&lt;</span>
+                <span class="intro__fly-item">div</span>
+                <span class="intro__fly-item intro__fly-item_wings_divright">&gt;</span>
+            </div>
+            <div class="flytag intro__flytag_div2">
+                <span class="intro__fly-item intro__fly-item_wings_left">&lt;</span>
+                <span class="intro__fly-item">div</span>
+                <span class="intro__fly-item intro__fly-item_wings_divright">&gt;</span>
+            </div>
+        
+            <div class="container intro__container">
+                <div class="intro__text">
+                    <h1 class="name intro__name">Дарья&nbsp;Коротова</h1>
+                    <p class="prof intro__prof">Frontend-разработчик и веб-верстальщик</p>
+                    <button class="button intro__button button_fill">Узнать&nbsp;больше</button>
+                </div>
+                <img class="intro__img" src="img/photo.png" alt="Дарья Коротова">
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="container skills__container">
+                <h2 class="heading skills__heading" id="skills">Что я делаю</h2>
+                <ul class="skills__list1">
+                    <li class="skills__item1">
+                        <img class="skills__img" src="img/skills-1.png" alt="иконка вёрстки">
+                        <p class="skills__caption">Вёрстка&nbsp;лендинг-&nbsp;страниц<br>и&nbsp;сайтов&nbsp;любой&nbsp;сложности</p>
+                    </li>
+                    <li class="skills__item2">
+                        <img class="skills__img" src="img/skills-2.png" alt="иконка вёрстки">
+                        <p class="skills__caption">Адаптивная&nbsp;вёрстка&nbsp;под&nbsp;все<br>браузеры&nbsp;и&nbsp;устройства</p>
+                    </li>
+                </ul>
+                <ul class="skills__list2">
+                    <li class="skills__item3">
+                        <img class="skills__img" src="img/skills-3.png" alt="иконка вёрстки">
+                        <p class="skills__caption">Frontend-&nbsp;разработка<br>и&nbsp;программирование</p>
+                    </li>
+                    <li class="skills__item4">
+                        <img class="skills__img" src="img/skills-4.png" alt="иконка вёрстки">
+                        <p class="skills__caption">Исправление&nbsp;и&nbsp;доработка<br>существующей&nbsp;вёрстки</p>
+                    </li>
+                </ul>
+                <button class="button skills__button button_fill">Узнать&nbsp;стоимость</button>
+            </div>
+        </section>
+
+        <section class="examples">
+            <div class="container examples__container">
+                <h2 class="heading examples__heading" id="examples">Примеры моих работ</h2>
+                <div class="slider-container examples__slider-container">
+                    <button class="swiper-button swiper-button_left" aria-label="стрелка назад"></button>
+                    <button class="swiper-button swiper-button_right" aria-label="стрелка вперед"></button>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <figure>
+                                    <img class="swiper-img" src="img/example-psyсho.png" alt="изображение сайта психолога">
+                                    <figcaption class="swiper-caption">Сайт психолога Веры Антоновой</figcaption>
+                                </figure>
+                            </div>
+                            <div class="swiper-slide">
+                                <figure>
+                                    <img class="swiper-img" src="img/example-kid.png" alt="изображение сайта магазина детской одежды">
+                                    <figcaption class="swiper-caption">Сайт магазина детской одежды</figcaption>
+                                </figure>
+                            </div>
+                            <div class="swiper-slide">
+                                <figure>
+                                    <img class="swiper-img" src="img/example-fisher.png" alt="изображение сайта магазина Рыболов">
+                                    <figcaption class="swiper-caption">Сайт магазина "Рыболов"</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <button class="button examples__button button_fill">Заказать&nbsp;проект</button>
+            </div>
+        </section> 
+
+        <section class="offer">
+            <div class="wow flytag offer__flytag_close">
+                <span class="offer__fly-item offer__fly-item_wings_left wow">&lt;</span>
+                <span class="offer__fly-item">&nbsp;/</span>
+                <span class="offer__fly-item offer__fly-item_wings_right wow">&gt;</span>
+            </div>
+            <div class="wow flytag offer__flytag_braces1">
+                <span class="offer__fly-item offer__fly-item_wings_left wow">&lt;</span>
+                <span class="offer__fly-item">{ }</span>
+                <span class="offer__fly-item offer__fly-item_wings_right wow">&gt;</span>
+            </div>
+            <div class="wow flytag offer__flytag_hashtag">
+                <span class="offer__fly-item offer__fly-item_wings_left wow">&lt;</span>
+                <span class="offer__fly-item">&nbsp;#</span>
+                <span class="offer__fly-item offer__fly-item_wings_right wow">&gt;</span>
+            </div>
+            <div class="wow flytag offer__flytag_braces2">
+                <span class="offer__fly-item offer__fly-item_wings_left wow">&lt;</span>
+                <span class="offer__fly-item">{ }</span>
+                <span class="offer__fly-item offer__fly-item_wings_right wow">&gt;</span>
+            </div>
+            <div class="wow flytag offer__flytag_div">
+                <span class="offer__fly-item offer__fly-item_wings_left wow">&lt;</span>
+                <span class="offer__fly-item">div</span>
+                <span class="offer__fly-item offer__fly-item_wings_divright wow">&gt;</span>
+            </div>
+            <div class="container offer__container">
+                <h2 class="offer__content" id="offer">Адаптивная вёрстка под все устройства<br>и браузеры от 1000 рублей всего за 4 часа.*</h2>
+                <p class="offer__footnote">* Cрок и стоимость могут отличаться от заявленных и рассчитываются индивидуально, 
+                    в зависимости от сложности задач.</p>  
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__left">
+                <nav class="nav footer__nav">
+                    <ul class="nav-list footer__nav-list">
+                        <li class="nav-list__item">
+                            <div class="footer__block">
+                                <a class="footer__nav-link footer__nav-link_services" href="#skills">Услуги</a>
+                                <div class="hoverline footer__hoverline"></div>
+                            </div>
+                        </li>
+                        <li class="nav-list__item">
+                            <div class="footer__block">
+                                <a class="footer__nav-link footer__nav-link_portfolio" href="#examples">Портфолио</a>
+                                <div class="hoverline footer__hoverline"></div>
+                            </div>
+                        </li>
+                        <li class="nav-list__item">
+                            <div class="footer__block">
+                                <a class="footer__nav-link footer__nav-link_cost" href="#offer">Стоимость</a>
+                                <div class="hoverline footer__hoverline"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer__center">
+                <address>
+                    <a class="phone footer__phone" href="tel:+7(925)452-02-65" aria-label="телефон">
+                        <i class="fas fa-phone-alt icon-fonts"></i>
+                        <span class="phone__numbers">+7 (925) 452-02-65</span>
+                    </a>
+                    <a class="mail footer__mail" href="#mailto:korotova1@gmail.com" aria-label="почта">
+                        <i class="fas fa-envelope icon-fonts"></i>
+                        <span class="mail__name">korotova1@gmail.com</span>
+                    </a>
+                </address>
+            </div>
+            <div class="footer__right">
+                <button class="button footer__button">Заказать&nbsp;звонок</button>
+                <ul class="social-list footer__social-list">
+                    <li class="social-list__item"><a class="social-list__vk" onclick="Share.vkontakte('URL','TITLE','IMG_PATH','DESC')" aria-label="переход на страницу в Вконтакте"></a></li>
+                    <li class="social-list__item"><a class="social-list__fb" onclick="Share.facebook('URL','TITLE','IMG_PATH','DESC')" aria-label="переход на страницу в Фейсбук"></a></li>
+                    <li class="social-list__item"><a class="social-list__twit" onclick="Share.twitter('URL','TITLE')" aria-label="переход на страницу в Твиттер"></a></li>
+                    <li class="social-list__item"><a class="social-list__inst" href="https://www.instagram.com/?hl=ru" aria-label="переход на страницу в Инстаграм"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__extra">
+            <span class="footer__author">&copy;&nbsp;Дарья Коротова, 2020 - 2022</span>
+        </div>
+    </footer>  
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.inputmask.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
