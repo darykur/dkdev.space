@@ -19,67 +19,69 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
+
 <body class="page">
     <button class="button to-top animate__animated">Наверх</button>
-    <header class="header">
-        <div class="popup-container">
-            <div class="popup-cap"></div>
-            <div class="popup-menu">
-                <div class="popup-menu__window">
-                    <ul class="nav-list popup-menu__nav-list">
-                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft">
-                            <div class="header__block">
-                                <a class="header__nav-link popup-menu__nav-link_services" href="#skills">Услуги</a>
-                                <div class="hoverline header__hoverline"></div>
-                            </div>
-                        </li>
-                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft animate__delay1">
-                            <div class="header__block">
-                                <a class="header__nav-link popup-menu__nav-link_portfolio header__nav-link_color_red" href="#examples">Портфолио</a>
-                                <div class="hoverline hoverline_red"></div>
-                            </div>
-                        </li>
-                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft  animate__delay2">
-                            <div class="header__block">
-                                <a class="header__nav-link popup-menu__nav-link_cost" href="#offer">Стоимость</a>
-                                <div class="hoverline header__hoverline"></div>
-                            </div>
-                        </li>
-                    </ul>
+
+    <div class="popup-container">
+        <div class="popup-cap"></div>
+        <div class="popup-menu">
+            <div class="popup-menu__window">
+                <ul class="nav-list popup-menu__nav-list">
+                    <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft">
+                        <a class="header__nav-link popup-menu__nav-link_skills" href="#skills">Услуги</a>
+                        <div class="nav-list__header-skills-hoverline-cont">
+                            <div class="hoverline header__hoverline"></div>
+                        </div>
+                    </li>
+                    <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft animate__delay1">
+                        <a class="header__nav-link popup-menu__nav-link_examples header__nav-link_color_red" href="#examples">Портфолио</a>
+                        <div class="nav-list__header-examples-hoverline-cont">
+                            <div class="hoverline hoverline_red"></div>
+                        </div>
+                    </li>
+                    <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft  animate__delay2">
+                        <a class="header__nav-link popup-menu__nav-link_offer" href="#offer">Стоимость</a>
+                        <div class="nav-list__header-offer-hoverline-cont">
+                            <div class="hoverline header__hoverline"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-callback">
+        <div class="popup-callback__window popup-callback__window_grey">
+            <button class="button popup-callback__close" aria-label="закрыть окно">
+                <span></span>
+            </button>
+            <form class="popup-callback__form" method="post">
+                <input type="hidden" name = "project_name" value = "dkdev.space">
+                <input type="hidden" name = "admin_email" value = "darykur@yandex.ru">
+                <input type="hidden" name = "form_subject" value = "Запрос обратного звонка">
+                <label class="popup-callback__label" for="name">КАК&nbsp;Я&nbsp;МОГУ&nbsp;К&nbsp;ВАМ&nbsp;ОБРАЩАТЬСЯ</label>
+                <input class="popup-callback__input" type="text" name="имя" id="name" placeholder="Name">
+                <label class="popup-callback__label" for="tel">ВАШ&nbsp;КОНТАКТНЫЙ&nbsp;НОМЕР&nbsp;ТЕЛЕФОНА</label>
+                <input class="popup-callback__input" type="tel" name="телефон" id="tel" placeholder="+7(999)999-99-99">
+                <div class="popup-callback__email">
+                    <label class="popup-callback__label" for="email">И АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ</label>
+                    <input class="popup-callback__input" type="email" name="почта" id="email" placeholder="mail@com.ru">
                 </div>
-            </div>
+                <button class="button popup-callback__submit" type="submit">ЖДУ&nbsp;ЗВОНКА</button>  
+            </form>
         </div>
-        
-        <div class="popup-callback">
-            <div class="popup-callback__window popup-callback__window_grey">
-                <button class="button popup-callback__close" aria-label="закрыть окно">
-                    <span></span>
-                </button>
-                <form class="popup-callback__form" method="post">
-                    <input type="hidden" name = "project_name" value = "dkdev.space">
-                    <input type="hidden" name = "admin_email" value = "darykur@yandex.ru">
-                    <input type="hidden" name = "form_subject" value = "Запрос обратного звонка">
-                    <label class="popup-callback__label" for="name">КАК&nbsp;Я&nbsp;МОГУ&nbsp;К&nbsp;ВАМ&nbsp;ОБРАЩАТЬСЯ</label>
-                    <input class="popup-callback__input" type="text" name="имя" id="name" placeholder="Name">
-                    <label class="popup-callback__label" for="tel">ВАШ&nbsp;КОНТАКТНЫЙ&nbsp;НОМЕР&nbsp;ТЕЛЕФОНА</label>
-                    <input class="popup-callback__input" type="tel" name="телефон" id="tel" placeholder="+7(999)999-99-99">
-                    <div class="popup-callback__email">
-                        <label class="popup-callback__label" for="email">И АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ</label>
-                        <input class="popup-callback__input" type="email" name="почта" id="email" placeholder="mail@com.ru">
-                    </div>
-                    <button class="button popup-callback__submit" type="submit">ЖДУ&nbsp;ЗВОНКА</button>  
-                </form>
-            </div>
-            <div class="popup-callback__window popup-callback__window_green">
-                <button class="button popup-callback__close" aria-label="закрыть окно">
-                    <span>|</span>
-                    <span>|</span>
-                </button>
-                <p class="popup-callback__sucsess">ОТПРАВЛЕНО!</p>
-            </div>
-
+        <div class="popup-callback__window popup-callback__window_green">
+            <button class="button popup-callback__close" aria-label="закрыть окно">
+                <span>|</span>
+                <span>|</span>
+            </button>
+            <p class="popup-callback__sucsess">ОТПРАВЛЕНО!</p>
         </div>
 
+    </div>
+
+    <header class="header">
         <div class="container header__container">
             <nav class="nav header__nav">
                 <button class="burger nav__burger animate__animated" aria-label="список меню">
@@ -87,20 +89,20 @@
                 </button>
                 <ul class="nav-list header__nav-list">
                     <li class="nav-list__item nav-list__item_header">
-                        <div class="header__block">
-                            <a class="header__nav-link header__nav-link_services" href="#skills">Услуги</a>
+                        <a class="header__nav-link header__nav-link_skills" href="#skills">Услуги</a>
+                        <div class="nav-list__header-skills-hoverline-cont">
                             <div class="hoverline header__hoverline"></div>
                         </div>
                     </li>
                     <li class="nav-list__item nav-list__item_header">
-                        <div class="header__block">
-                            <a class="header__nav-link header__nav-link_portfolio header__nav-link_color_red" href="#examples">Портфолио</a>
+                        <a class="header__nav-link header__nav-link_examples header__nav-link_color_red" href="#examples">Портфолио</a>
+                        <div class="nav-list__header-examples-hoverline-cont">
                             <div class="hoverline hoverline_red"></div>
                         </div>
                     </li>
                     <li class="nav-list__item nav-list__item_header">
-                        <div class="header__block">
-                            <a class="header__nav-link header__nav-link_cost" href="#offer">Стоимость</a>
+                        <a class="header__nav-link header__nav-link_offer" href="#offer">Стоимость</a>
+                        <div class="nav-list__header-offer-hoverline-cont">
                             <div class="hoverline header__hoverline"></div>
                         </div>
                     </li>
@@ -260,20 +262,20 @@
                 <nav class="nav footer__nav">
                     <ul class="nav-list footer__nav-list">
                         <li class="nav-list__item">
-                            <div class="footer__block">
-                                <a class="footer__nav-link footer__nav-link_services" href="#skills">Услуги</a>
+                            <a class="footer__nav-link footer__nav-link_skills" href="#skills">Услуги</a>
+                            <div class="nav-list__footer-skills-hoverline-cont">
                                 <div class="hoverline footer__hoverline"></div>
                             </div>
                         </li>
                         <li class="nav-list__item">
-                            <div class="footer__block">
-                                <a class="footer__nav-link footer__nav-link_portfolio" href="#examples">Портфолио</a>
+                            <a class="footer__nav-link footer__nav-link_examples" href="#examples">Портфолио</a>
+                            <div class="nav-list__footer-examples-hoverline-cont">
                                 <div class="hoverline footer__hoverline"></div>
                             </div>
                         </li>
                         <li class="nav-list__item">
-                            <div class="footer__block">
-                                <a class="footer__nav-link footer__nav-link_cost" href="#offer">Стоимость</a>
+                            <a class="footer__nav-link footer__nav-link_offer" href="#offer">Стоимость</a>
+                            <div class="nav-list__footer-offer-hoverline-cont">
                                 <div class="hoverline footer__hoverline"></div>
                             </div>
                         </li>
@@ -295,9 +297,9 @@
             <div class="footer__right">
                 <button class="button footer__button">Заказать&nbsp;звонок</button>
                 <ul class="social-list footer__social-list">
-                    <li class="social-list__item"><a class="social-list__vk" onclick="Share.vkontakte('URL','TITLE','IMG_PATH','DESC')" aria-label="переход на страницу в Вконтакте"></a></li>
-                    <li class="social-list__item"><a class="social-list__fb" onclick="Share.facebook('URL','TITLE','IMG_PATH','DESC')" aria-label="переход на страницу в Фейсбук"></a></li>
-                    <li class="social-list__item"><a class="social-list__twit" onclick="Share.twitter('URL','TITLE')" aria-label="переход на страницу в Твиттер"></a></li>
+                    <li class="social-list__item"><a class="social-list__vk" href="#" onclick="Share.vkontakte('URL','TITLE','IMG_PATH','DESC')" aria-label="переход на страницу в Вконтакте"></a></li>
+                    <li class="social-list__item"><a class="social-list__fb" href="#" onclick="Share.facebook('URL','TITLE','IMG_PATH','DESC')" aria-label="переход на страницу в Фейсбук"></a></li>
+                    <li class="social-list__item"><a class="social-list__twit" href="#" onclick="Share.twitter('URL','TITLE')" aria-label="переход на страницу в Твиттер"></a></li>
                     <li class="social-list__item"><a class="social-list__inst" href="https://www.instagram.com/?hl=ru" aria-label="переход на страницу в Инстаграм"></a></li>
                 </ul>
             </div>
@@ -307,6 +309,8 @@
             <span class="footer__author">&copy;&nbsp;Дарья Коротова, 2020 - 2022</span>
         </div>
     </footer>  
+
+
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/jquery.inputmask.min.js"></script>

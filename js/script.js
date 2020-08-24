@@ -1,18 +1,48 @@
+//скринридер для popup-menu и popup-callback
 const body = document.querySelector('.page');
-const burger = document.querySelector('.nav__burger');
-const menu = document.querySelector('.popup-menu');
+const callback = document.querySelector('.popup-callback');
+const menu = document.querySelector('.popup-container');
+let previousActiveElement;
 menu.inert = true;
-function inertUse (){
+callback.inert = true;
+
+function inertOnMenu (){
   Array.from(body.children).forEach((child) => {
     if (child !== menu) {
       child.inert = true;
     }
   });
-  burger.inert = false;
   menu.inert = false;
-  burger.focus();
 }
 
+function inertOffMenu (){
+  Array.from(body.children).forEach((child) => {
+    if (child !== menu) {
+      child.inert = false;
+    }
+  });
+  menu.inert = true;
+  previousActiveElement.focus();
+}
+
+function inertOnCallback (){
+  Array.from(body.children).forEach((child) => {
+    if (child !== callback) {
+      child.inert = true;
+    }
+  });
+  callback.inert = false;
+}
+
+function inertOffCallback (){
+  Array.from(body.children).forEach((child) => {
+    if (child !== callback) {
+      child.inert = false;
+    }
+  });
+  callback.inert = true;
+  previousActiveElement.focus();
+}
 
 
 //шеринг на соц.кнопки
@@ -58,6 +88,7 @@ $(document).ready(function(){
     $('.page').addClass('scroll-forbidden');
     $('.popup-callback').fadeIn(300);
     $('.popup-callback').css({'display':'flex','z-index':'10'});
+    inertOnCallback();
   });
   $('.intro__button,.skills__button,.examples__button').on('click', function(e){
     e.preventDefault();
@@ -69,12 +100,14 @@ $(document).ready(function(){
     $('.popup-callback').fadeIn(300);
     $('.popup-callback').css({'display':'flex','z-index':'10'});
     $('.popup-callback__email').css('display','flex');
+    inertOnCallback();
   });
   $('.popup-callback__close').on('click', function(e){
     e.preventDefault();
     $('.page').removeClass('scroll-forbidden');
     $('.popup-callback').fadeOut(300);
     $('.popup-callback__email').fadeOut(300);
+    inertOffCallback();
   });
   $(document).mouseup(function(e){
     var div = $('.popup-callback__window');
@@ -84,6 +117,7 @@ $(document).ready(function(){
         $('.page').removeClass('scroll-forbidden');
         $('.popup-callback').fadeOut(300);
         $('.popup-callback__email').fadeOut(300);
+        inertOffCallback();
       }
   });
 
@@ -98,15 +132,13 @@ $(document).ready(function(){
       $('.page').addClass('scroll-forbidden');
       $('.popup-menu,.popup-cap').fadeIn(300);
       $('.popup-menu,.popup-cap').css({'display':'flex','z-index':'10'});
-      $('.header__block:first').addClass('popup-menu__width');
       $(this).css('z-index','5');
-      $(this).focus();  
-      inertUse();
+      previousActiveElement = document.activeElement;
+      inertOnMenu();
     }
     else {
       $('.page').removeClass('scroll-forbidden');
       $('.popup-menu,.popup-cap').fadeOut(300);
-      $('.header__block:first').removeClass('popup-menu__width');
       $(this).css('z-index','auto');
     }
   });
@@ -120,12 +152,13 @@ $(document).ready(function(){
     if (e.keyCode == keys.ESC) {
       $('.page').removeClass('scroll-forbidden');
       $('.popup-menu,.popup-cap').fadeOut(300);
-      $('.header__block:first').removeClass('popup-menu__width');
       $('.burger').css('z-index','auto');
       $('.burger').removeClass('burger__active');
       $('.page').removeClass('scroll-forbidden');
       $('.popup-callback').fadeOut(300);
       $('.popup-callback__email').fadeOut(300);
+      inertOffMenu();
+      inertOffCallback();
     }
   });
 
@@ -139,12 +172,12 @@ $(document).ready(function(){
       scrollTop: offset
     }, 700);
   });
-  $('.popup-menu__nav-link_services,.popup-menu__nav-link_portfolio,.popup-menu__nav-link_cost').on('click', function(){
+  $('.popup-menu__nav-link_skills,.popup-menu__nav-link_examples,.popup-menu__nav-link_offer').on('click', function(){
     $('.page').removeClass('scroll-forbidden');
     $('.popup-menu,.popup-cap').fadeOut(300);
-    $('.header__block:first').removeClass('popup-menu__width');
     $('.burger').css('z-index','auto');
     $('.burger').removeClass('burger__active');
+    inertOffMenu();
   });
 
 
@@ -284,19 +317,19 @@ $(document).ready(function(){
 
   //ховер на элементы меню
   var addRunning = function(){
-    $(this).next().addClass('running');
+    $(this).next().children().addClass('running');
   };
   var removeRunning = function(){
-    $(this).next().removeClass('running');
+    $(this).next().children().removeClass('running');
   };
-  $('.popup-menu__nav-link_services,.popup-menu__nav-link_portfolio,.popup-menu__nav-link_cost,.header__nav-link_services,.header__nav-link_portfolio,.header__nav-link_cost,.footer__nav-link_services,.footer__nav-link_portfolio,.footer__nav-link_cost').on('mouseover', addRunning);
-  $('.header__nav-link_portfolio,.popup-menu__nav-link_portfolio').on('mouseover',function(){
-    $(this).next().removeClass('running-back');
+  $('.popup-menu__nav-link_skills,.popup-menu__nav-link_examples,.popup-menu__nav-link_offer,.header__nav-link_skills,.header__nav-link_examples,.header__nav-link_offer,.footer__nav-link_skills,.footer__nav-link_examples,.footer__nav-link_offer').on('mouseover', addRunning);
+  $('.header__nav-link_examples,.popup-menu__nav-link_examples').on('mouseover',function(){
+    $(this).next().children().removeClass('running-back');
   });
-  $('.header__nav-link_portfolio,.popup-menu__nav-link_portfolio').on('mouseout',function(){
-    $(this).next().addClass('running-back');
+  $('.header__nav-link_examples,.popup-menu__nav-link_examples').on('mouseout',function(){
+    $(this).next().children().addClass('running-back');
   });
-  $('.popup-menu__nav-link_services,.popup-menu__nav-link_portfolio,.popup-menu__nav-link_cost,.header__nav-link_services,.header__nav-link_portfolio,.header__nav-link_cost,.footer__nav-link_services,.footer__nav-link_portfolio,.footer__nav-link_cost').on('mouseout', removeRunning);
+  $('.popup-menu__nav-link_skills,.popup-menu__nav-link_examples,.popup-menu__nav-link_offer,.header__nav-link_skills,.header__nav-link_examples,.header__nav-link_offer,.footer__nav-link_skills,.footer__nav-link_examples,.footer__nav-link_offer').on('mouseout', removeRunning);
 })
 
 
