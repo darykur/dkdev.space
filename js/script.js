@@ -2,18 +2,22 @@
 const body = document.querySelector('.page');
 const callback = document.querySelector('.popup-callback');
 const menu = document.querySelector('.popup-container');
-let previousActiveElement;
+const header = document.querySelector('.header');
+const phone = document.querySelector('.header__phone');
+const button = document.querySelector('.header__button');
 menu.inert = true;
 callback.inert = true;
 
 function inertOnMenu (){
   Array.from(body.children).forEach((child) => {
-    if (child !== menu) {
+    if (child !== header) {
       child.inert = true;
     }
   });
+  phone.inert = true;
+  button.inert = true;
   menu.inert = false;
-}
+};
 
 function inertOffMenu (){
   Array.from(body.children).forEach((child) => {
@@ -21,9 +25,10 @@ function inertOffMenu (){
       child.inert = false;
     }
   });
+  phone.inert = false;
+  button.inert = false;
   menu.inert = true;
-  previousActiveElement.focus();
-}
+};
 
 function inertOnCallback (){
   Array.from(body.children).forEach((child) => {
@@ -32,7 +37,7 @@ function inertOnCallback (){
     }
   });
   callback.inert = false;
-}
+};
 
 function inertOffCallback (){
   Array.from(body.children).forEach((child) => {
@@ -41,8 +46,7 @@ function inertOffCallback (){
     }
   });
   callback.inert = true;
-  previousActiveElement.focus();
-}
+};
 
 
 //шеринг на соц.кнопки
@@ -76,14 +80,19 @@ Share = {
 	}
 };
 
+$(document).ready(function(){
+  $('.social-list__vk,.social-list__fb,.social-list__inst,.social-list__twit').on('click', function(e){
+    e.preventDefault();
+  });
+
 
 //popup-callback 
-$(document).ready(function(){
   $('.footer__button,.header__button').on('click', function(e){
     e.preventDefault();
     let offset = $(this).offset().top;
-    $('.popup-callback__window_green').css('display','none');
-    $('.popup-callback__window_grey').css('display','flex');
+    $('.popup-callback__sucsess-window').css('display','none');
+    $('.to-top').css('display','none');
+    $('.popup-callback__form-window').css('display','flex');
     $('.page').scrollTop(offset);
     $('.page').addClass('scroll-forbidden');
     $('.popup-callback').fadeIn(300);
@@ -93,8 +102,9 @@ $(document).ready(function(){
   $('.intro__button,.skills__button,.examples__button').on('click', function(e){
     e.preventDefault();
     let offset = $(this).offset().top;
-    $('.popup-callback__window_green').css('display','none');
-    $('.popup-callback__window_grey').css('display','flex');
+    $('.popup-callback__sucsess-window').css('display','none');
+    $('.to-top').css('display','none');
+    $('.popup-callback__form-window').css('display','flex');
     $('.page').scrollTop(offset);
     $('.page').addClass('scroll-forbidden');
     $('.popup-callback').fadeIn(300);
@@ -107,6 +117,9 @@ $(document).ready(function(){
     $('.page').removeClass('scroll-forbidden');
     $('.popup-callback').fadeOut(300);
     $('.popup-callback__email').fadeOut(300);
+    if ($(window).scrollTop() != 0) {
+      $('.to-top').css('display','block');
+    }
     inertOffCallback();
   });
   $(document).mouseup(function(e){
@@ -117,6 +130,9 @@ $(document).ready(function(){
         $('.page').removeClass('scroll-forbidden');
         $('.popup-callback').fadeOut(300);
         $('.popup-callback__email').fadeOut(300);
+        if ($(window).scrollTop() != 0) {
+          $('.to-top').css('display','block');
+        }
         inertOffCallback();
       }
   });
@@ -133,18 +149,18 @@ $(document).ready(function(){
       $('.popup-menu,.popup-cap').fadeIn(300);
       $('.popup-menu,.popup-cap').css({'display':'flex','z-index':'10'});
       $(this).css('z-index','5');
-      previousActiveElement = document.activeElement;
       inertOnMenu();
     }
     else {
       $('.page').removeClass('scroll-forbidden');
       $('.popup-menu,.popup-cap').fadeOut(300);
       $(this).css('z-index','auto');
+      inertOffMenu();
     }
   });
 
 
-  //обработчик на клавишу ESC 
+//обработчик на клавишу ESC 
   let keys = {
     ESC: 27,
   };
@@ -171,8 +187,6 @@ $(document).ready(function(){
     $('body,html').animate({
       scrollTop: offset
     }, 700);
-  });
-  $('.popup-menu__nav-link_skills,.popup-menu__nav-link_examples,.popup-menu__nav-link_offer').on('click', function(){
     $('.page').removeClass('scroll-forbidden');
     $('.popup-menu,.popup-cap').fadeOut(300);
     $('.burger').css('z-index','auto');
@@ -207,46 +221,41 @@ $(document).ready(function(){
 
 
 //слайдер примеры моих работ
-  function swiper() {
-    if($(window).width() > 991 && $(window).width() < 1200){   
-        var mySwiper = new Swiper ('.swiper-container', {
-            loop: true,
-            slidesPerView: 2,
-            spaceBetween: 35,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-             },
-        });
-    }
-    else if($(window).width() > 1199){   
-        var mySwiper = new Swiper ('.swiper-container', {
-            loop: true,
-            slidesPerView: 3,
-            spaceBetween: 30,
-            navigation: {
-                nextEl: '.swiper-button_right',
-                prevEl: '.swiper-button_left',
-            },
-        });
-    } 
-    else {
-        var mySwiper = new Swiper ('.swiper-container', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-             },
-        });
-    }
-  };   
-  swiper();
-  $(window).resize(function() {
-    swiper();
+  var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      updateOnWindowResize: true,
+      pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+      },
+
+      breakpoints: {
+        992: {
+          loop: true,
+          updateOnWindowResize: true,
+          slidesPerView: 2,
+          spaceBetween: 35,
+          pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+          },
+        },
+        1200: {
+          loop: true,
+          updateOnWindowResize: true,
+          slidesPerView: 3,
+          spaceBetween: 30,
+          pagination: false,
+          navigation: {
+              nextEl: '.swiper-button_right',
+              prevEl: '.swiper-button_left',
+          },
+        }
+      }
   });
 
 
-  //валидация и отправка формы
+//валидация и отправка формы
   $('form').each(function(){
     $(this).validate({
       focusInvalid: true,
@@ -282,8 +291,8 @@ $(document).ready(function(){
 					data: th.serialize(),
 			
 				}).done(() => {
-          $('.popup-callback__window_grey').css('display','none');
-          $('.popup-callback__window_green').css('display','flex');
+          $('.popup-callback__form-window').css('display','none');
+          $('.popup-callback__sucsess-window').css('display','flex');
 					th.trigger('reset');
 				});
 
@@ -293,44 +302,9 @@ $(document).ready(function(){
   });
 
   
-  //wow-эффект
+//wow-эффект
   new WOW().init();
-
-
-  //ховер на бургер
-  $('.burger').on('mouseover', function(){
-    $(this).addClass('animate__pulse');
-  });
-  $('.burger').on('mouseout', function(){
-    $(this).removeClass('animate__pulse');
-  });
-
-
-  //ховер на телефонную трубку
-  $('.header__button_img').on('mouseover',function(){
-    $(this).addClass('animate__tada');
-  });
-  $('.header__button_img').on('mouseout',function(){
-    $(this).removeClass('animate__tada');
-  });
-
-
-  //ховер на элементы меню
-  var addRunning = function(){
-    $(this).next().children().addClass('running');
-  };
-  var removeRunning = function(){
-    $(this).next().children().removeClass('running');
-  };
-  $('.popup-menu__nav-link_skills,.popup-menu__nav-link_examples,.popup-menu__nav-link_offer,.header__nav-link_skills,.header__nav-link_examples,.header__nav-link_offer,.footer__nav-link_skills,.footer__nav-link_examples,.footer__nav-link_offer').on('mouseover', addRunning);
-  $('.header__nav-link_examples,.popup-menu__nav-link_examples').on('mouseover',function(){
-    $(this).next().children().removeClass('running-back');
-  });
-  $('.header__nav-link_examples,.popup-menu__nav-link_examples').on('mouseout',function(){
-    $(this).next().children().addClass('running-back');
-  });
-  $('.popup-menu__nav-link_skills,.popup-menu__nav-link_examples,.popup-menu__nav-link_offer,.header__nav-link_skills,.header__nav-link_examples,.header__nav-link_offer,.footer__nav-link_skills,.footer__nav-link_examples,.footer__nav-link_offer').on('mouseout', removeRunning);
-})
+});
 
 
 
