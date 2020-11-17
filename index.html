@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ДКоротова - frontend-разработчик</title>
 
@@ -23,37 +24,9 @@
 <body class="page">
     <button class="button to-top animate__animated">Наверх</button>
 
-    <div class="popup-container">
-        <div class="popup-cap"></div>
-        <div class="popup-menu">
-            <div class="popup-menu__window">
-                <ul class="nav-list popup-menu__nav-list">
-                    <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft">
-                        <a class="header__nav-link popup-menu__nav-link_skills" href="#skills">Услуги</a>
-                        <div class="nav-list__header-skills-hoverline-cont">
-                            <div class="hoverline header__hoverline"></div>
-                        </div>
-                    </li>
-                    <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft animate__delay1">
-                        <a class="header__nav-link popup-menu__nav-link_examples header__nav-link_color_red" href="#examples">Портфолио</a>
-                        <div class="nav-list__header-examples-hoverline-cont">
-                            <div class="hoverline hoverline_red"></div>
-                        </div>
-                    </li>
-                    <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft  animate__delay2">
-                        <a class="header__nav-link popup-menu__nav-link_offer" href="#offer">Стоимость</a>
-                        <div class="nav-list__header-offer-hoverline-cont">
-                            <div class="hoverline header__hoverline"></div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
     <div class="popup-callback">
-        <div class="popup-callback__window popup-callback__window_grey">
-            <button class="button popup-callback__close" aria-label="закрыть окно">
+        <div class="popup-callback__window popup-callback__form-window">
+            <button class="button popup-callback__close popup-callback__form-window-close" aria-label="закрыть окно">
                 <span></span>
             </button>
             <form class="popup-callback__form" method="post">
@@ -71,20 +44,47 @@
                 <button class="button popup-callback__submit" type="submit">ЖДУ&nbsp;ЗВОНКА</button>  
             </form>
         </div>
-        <div class="popup-callback__window popup-callback__window_green">
-            <button class="button popup-callback__close" aria-label="закрыть окно">
-                <span>|</span>
-                <span>|</span>
+        <div class="popup-callback__window popup-callback__sucsess-window">
+            <button class="button popup-callback__close popup-callback__sucsess-window-close" aria-label="закрыть окно">
+                <span></span>
             </button>
             <p class="popup-callback__sucsess">ОТПРАВЛЕНО!</p>
         </div>
-
     </div>
 
+
     <header class="header">
+        <div class="popup-container">
+            <div class="popup-cap"></div>
+            <div class="popup-menu">
+                <div class="popup-menu__window">
+                    <ul class="nav-list popup-menu__nav-list">
+                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft">
+                            <a class="header__nav-link header__nav-link_skills" href="#skills">Услуги</a>
+                            <div class="nav-list__header-skills-hoverline-cont">
+                                <div class="hoverline header__hoverline"></div>
+                            </div>
+                        </li>
+                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft animate__delay1">
+                            <a class="header__nav-link header__nav-link_examples" href="#examples">Портфолио</a>
+                            <div class="nav-list__header-examples-hoverline-cont">
+                                <div class="hoverline hoverline_red"></div>
+                            </div>
+                        </li>
+                        <li class="nav-list__item nav-list__item_popup animate__animated animate__fadeInLeft  animate__delay2">
+                            <a class="header__nav-link header__nav-link_offer" href="#offer">Стоимость</a>
+                            <div class="nav-list__header-offer-hoverline-cont">
+                                <div class="hoverline header__hoverline"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="container header__container">
             <nav class="nav header__nav">
-                <button class="burger nav__burger animate__animated" aria-label="список меню">
+                <button class="burger nav__burger" aria-label="список меню">
+                    <div class="burger__hover"></div>
                     <span class="burger__line"></span>
                 </button>
                 <ul class="nav-list header__nav-list">
@@ -95,7 +95,7 @@
                         </div>
                     </li>
                     <li class="nav-list__item nav-list__item_header">
-                        <a class="header__nav-link header__nav-link_examples header__nav-link_color_red" href="#examples">Портфолио</a>
+                        <a class="header__nav-link header__nav-link_examples" href="#examples">Портфолио</a>
                         <div class="nav-list__header-examples-hoverline-cont">
                             <div class="hoverline hoverline_red"></div>
                         </div>
@@ -110,7 +110,7 @@
             </nav>
             <address class="header__phone animate__animated"><a class="header__phone-link" href="tel:+79254520265" aria-label="телефон">+7 (925) 452-02-65</a></address>
             <button class="button header__button button_transparent" aria-label="заказ обратного звонка">
-                <img class="header__button_img  animate__animated" src="img/call-request.png" alt="заказать звонок">
+                <img class="header__button_img" src="img/call-request.png" alt="заказать звонок">
                 <span class="header__button_text">Заказать звонок</span>  
             </button>
         </div>
@@ -149,7 +149,6 @@
                 <span class="intro__fly-item">div</span>
                 <span class="intro__fly-item intro__fly-item_wings_divright">&gt;</span>
             </div>
-        
             <div class="container intro__container">
                 <div class="intro__text">
                     <h1 class="name intro__name">Дарья&nbsp;Коротова</h1>
@@ -307,6 +306,7 @@
 
         <div class="footer__extra">
             <span class="footer__author">&copy;&nbsp;Дарья Коротова, 2020 - 2022</span>
+            <a class="privacy-policy" href="privacy_policy.pdf" target="blanc">Политика конфиденциальности</a>
         </div>
     </footer>  
 
@@ -317,6 +317,7 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/inert.min.js"></script>
+    <script src="js/focus-visible.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
